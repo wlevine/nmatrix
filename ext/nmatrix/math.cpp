@@ -769,8 +769,8 @@ static VALUE nm_cblas_rotg(VALUE self, VALUE ab) {
       NULL, NULL, NULL, NULL, NULL, // can't represent c and s as integers, so no point in having integer operations.
       nm::math::cblas_rotg<float>,
       nm::math::cblas_rotg<double>,
-      nm::math::cblas_rotg<nm::Complex64>,
-      nm::math::cblas_rotg<nm::Complex128>,
+      NULL,//nm::math::cblas_rotg<nm::Complex64>,
+      NULL,//nm::math::cblas_rotg<nm::Complex128>,
       NULL, NULL, NULL, // no rationals
       NULL //nm::math::cblas_rotg<nm::RubyObject>
   };

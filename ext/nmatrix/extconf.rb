@@ -224,7 +224,8 @@ have_func("cblas_dgemm", "cblas.h")
 #find_library("cblas", "cblas_dgemm")
 #find_library("atlas", "ATL_dgemmNN")
 # Order matters here: ATLAS has to go after LAPACK: http://mail.scipy.org/pipermail/scipy-user/2007-January/010717.html
-$libs += " -llapack -lcblas -latlas "
+#$libs += " -llapack -lcblas -latlas "
+$libs += " -llapack "
 #$libs += " -lprofiler "
 
 
