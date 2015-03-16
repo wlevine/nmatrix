@@ -94,7 +94,7 @@ inline void rotg(double* a, double* b, double* c, double* s) {
   cblas_drotg(a, b, c, s);
 }
 
-template <>
+/*template <>
 inline void rotg(Complex64* a, Complex64* b, Complex64* c, Complex64* s) {
   cblas_crotg(reinterpret_cast<void*>(a), reinterpret_cast<void*>(b), reinterpret_cast<void*>(c), reinterpret_cast<void*>(s));
 }
@@ -102,7 +102,7 @@ inline void rotg(Complex64* a, Complex64* b, Complex64* c, Complex64* s) {
 template <>
 inline void rotg(Complex128* a, Complex128* b, Complex128* c, Complex128* s) {
   cblas_zrotg(reinterpret_cast<void*>(a), reinterpret_cast<void*>(b), reinterpret_cast<void*>(c), reinterpret_cast<void*>(s));
-}
+}*/
 
 template <typename DType>
 inline void cblas_rotg(void* a, void* b, void* c, void* s) {

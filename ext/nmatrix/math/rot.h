@@ -118,7 +118,7 @@ inline void rot(const int N, double* X, const int incX, double* Y, const int inc
   cblas_drot(N, X, incX, Y, incY, c, s);
 }
 
-template <>
+/*template <>
 inline void rot(const int N, Complex64* X, const int incX, Complex64* Y, const int incY, const float c, const float s) {
   cblas_csrot(N, X, incX, Y, incY, c, s);
 }
@@ -126,7 +126,7 @@ inline void rot(const int N, Complex64* X, const int incX, Complex64* Y, const i
 template <>
 inline void rot(const int N, Complex128* X, const int incX, Complex128* Y, const int incY, const double c, const double s) {
   cblas_zdrot(N, X, incX, Y, incY, c, s);
-}
+}*/
 
 
 template <typename DType, typename CSDType>
