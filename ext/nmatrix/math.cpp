@@ -1708,7 +1708,7 @@ static VALUE nm_has_clapack(VALUE self) {
  */
 static VALUE nm_clapack_getri(VALUE self, VALUE order, VALUE n, VALUE a, VALUE lda, VALUE ipiv) {
 #if !defined (HAVE_CLAPACK_H) && !defined (HAVE_ATLAS_CLAPACK_H)
-  rb_raise(rb_eNotImpError, "getri currently requires CLAPACK");
+  //rb_raise(rb_eNotImpError, "getri currently requires CLAPACK");
 #endif
 
   static int (*ttable[nm::NUM_DTYPES])(const enum CBLAS_ORDER, const int n, void* a, const int lda, const int* ipiv) = {
