@@ -146,6 +146,8 @@
 #include "nmatrix.h"
 #include "ruby_constants.h"
 
+#include "lapacke.c"
+
 /*
  * Forward Declarations
  */
