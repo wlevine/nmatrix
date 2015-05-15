@@ -793,7 +793,15 @@ protected
       self.__yale_map_stored__ { |l| l.send(op,rhs) }.cast(stype, NMatrix.upcast(dtype, NMatrix.min_dtype(rhs)))
     end
     define_method("__dense_scalar_#{ewop}__") do |rhs|
-      self.__dense_map__ { |l| l.send(op,rhs) }.cast(stype, NMatrix.upcast(dtype, NMatrix.min_dtype(rhs)))
+      #return self.__dense_map__ { |l| l.send(op,rhs) }.cast(stype, NMatrix.upcast(dtype, NMatrix.min_dtype(rhs)))
+      a = self.clone
+      if dtype != NMatrix.upcast(dtype, NMatrix.min_dtype(rhs))
+        a = a.cast(stype, NMatrix.upcast(dtype, NMatrix.min_dtype(rhs)))
+      end
+      a.each_with_indices do |v,*indices|
+        a[*indices] = v.send(op,rhs)
+      end
+      a
     end
   end
 
