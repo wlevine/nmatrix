@@ -98,7 +98,9 @@ describe NMatrix::LAPACK do
       it "exposes clapack_potrf" do
         # first do upper
         begin
-          a = NMatrix.new(:dense, 3, [25,15,-5, 0,18,0, 0,0,11], dtype)
+          a = NMatrix.new([3,3], [4,12,-16,
+                                  12,37,-43,
+                                  -16,-43,98], dtype: dtype)
           NMatrix::LAPACK::clapack_potrf(:row, :upper, 3, a, 3)
           b = NMatrix.new(:dense, 3, [5,3,-1, 0,3,1, 0,0,3], dtype)
           expect(a).to eq(b)
