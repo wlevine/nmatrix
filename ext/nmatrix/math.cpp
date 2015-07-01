@@ -1159,7 +1159,7 @@ static VALUE nm_cblas_trmm(VALUE self,
       nm::math::cblas_trmm<float>,
       nm::math::cblas_trmm<double>,
 #if (defined(HAVE_CBLAS_H) || defined(HAVE_ATLAS_CBLAS_H))
-      cblas_ctrmm, cblas_ztrmm // call directly, same function signature!
+      cblas_ctrmm, cblas_ztrmm, // call directly, same function signature!
 #else
       nm::math::cblas_trmm<nm::Complex64>,
       nm::math::cblas_trmm<nm::Complex128>,
@@ -1199,7 +1199,7 @@ static VALUE nm_cblas_syrk(VALUE self,
       nm::math::cblas_syrk<float>,
       nm::math::cblas_syrk<double>,
 #if (defined(HAVE_CBLAS_H) || defined(HAVE_ATLAS_CBLAS_H))
-      cblas_csyrk, cblas_zsyrk// call directly, same function signature!
+      cblas_csyrk, cblas_zsyrk, // call directly, same function signature!
 #else
       nm::math::cblas_syrk<nm::Complex64>,
       nm::math::cblas_syrk<nm::Complex128>,

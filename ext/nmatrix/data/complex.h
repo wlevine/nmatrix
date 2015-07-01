@@ -83,8 +83,6 @@ class Complex {
 	template <typename ComplexType>
 	inline Complex(const Complex<ComplexType>& other) : r(other.r), i(other.i) {}
 
-	template <typename IntType, typename = typename std::enable_if<std::is_integral<IntType>::value>::type>
-
   Complex(const RubyObject& other);
 
   /*
