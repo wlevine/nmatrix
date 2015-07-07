@@ -56,8 +56,8 @@ describe NMatrix::LAPACK do
     context dtype do
 
       it "exposes clapack_gesv" do
-        a = NMatrix[[1.0/1, 2, 3], [0,1.0/2,4],[3,3,9]].cast(dtype: dtype)
-        b = NMatrix[[1.0/1],[2],[3]].cast(dtype: dtype)
+        a = NMatrix[[1.0, 2, 3], [0,1.0/2,4],[3,3,9]].cast(dtype: dtype)
+        b = NMatrix[[1.0],[2],[3]].cast(dtype: dtype)
         err = case dtype
                 when :float32, :complex64
                   1e-6

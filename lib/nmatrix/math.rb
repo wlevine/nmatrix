@@ -78,7 +78,7 @@ class NMatrix
       self
     else
       if self.integer_dtype?
-        __inverse__(self.cast(dtype: :float64), true) #not sure if this is right
+        __inverse__(self.cast(dtype: :float64), true)
       else
         dtype = self.dtype
         __inverse__(self, true)
