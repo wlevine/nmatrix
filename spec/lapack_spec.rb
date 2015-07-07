@@ -29,7 +29,7 @@ require 'spec_helper'
 
 describe NMatrix::LAPACK do
   # where integer math is allowed
-  [:byte, :int8, :int16, :int32, :int64, :rational32, :rational64, :rational128, :float32, :float64, :complex64, :complex128].each do |dtype|
+  [:byte, :int8, :int16, :int32, :int64, :float32, :float64, :complex64, :complex128].each do |dtype|
     context dtype do
       it "exposes clapack laswp" do
         a = NMatrix.new(:dense, [3,4], [1,2,3,4,5,6,7,8,9,10,11,12], dtype)
@@ -52,7 +52,7 @@ describe NMatrix::LAPACK do
   end
 
   # where integer math is not allowed
-  [:rational32, :rational64, :rational128, :float32, :float64, :complex64, :complex128].each do |dtype|
+  [:float32, :float64, :complex64, :complex128].each do |dtype|
     context dtype do
 
       it "exposes clapack_gesv" do
@@ -373,7 +373,6 @@ describe NMatrix::LAPACK do
       end
 
       it "exposes geev" do
-        pending("needs rational implementation") if dtype.to_s =~ /rational/
         ary = %w|-1.01 0.86 -4.60 3.31 -4.81
                      3.98 0.53 -7.04 5.29 3.55
                      3.30 8.26 -3.89 8.20 -1.51

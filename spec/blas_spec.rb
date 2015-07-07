@@ -30,7 +30,6 @@ require 'spec_helper'
 describe NMatrix::BLAS do
   [:byte, :int8, :int16, :int32, :int64,
    :float32, :float64, :complex64, :complex128,
-   :rational32, :rational64, :rational128,
    :object
   ].each do |dtype|
     context dtype do
@@ -48,7 +47,7 @@ describe NMatrix::BLAS do
     end
   end
 
-  [:rational32, :rational64, :rational128, :float32, :float64, :complex64, :complex128].each do |dtype|
+  [:float32, :float64, :complex64, :complex128].each do |dtype|
     context dtype do
       # This is not the same as "exposes cblas trsm", which would be for a version defined in blas.rb (which
       # would greatly simplify the calling of cblas_trsm in terms of arguments, and which would be accessible
@@ -59,7 +58,7 @@ describe NMatrix::BLAS do
         NMatrix::BLAS::cblas_trsm(:row, :right, :lower, :transpose, :nonunit, 1, 3, 1.0, a, 3, b, 3)
 
         # These test results all come from actually running a matrix through BLAS. We use them to ensure that NMatrix's
-        # version of these functions (for rationals) give similar results.
+        # version of these functions give similar results.
 
         expect(b[0]).to eq(-1.quo(4))
         expect(b[1]).to eq(33.quo(4))
@@ -71,16 +70,6 @@ describe NMatrix::BLAS do
         expect(b[1]).to eq(5)
         expect(b[2]).to eq(-13)
       end
-    end
-  end
-
-  [:rational32,:rational64,:rational128].each do |dtype|
-    context dtype do
-      it "exposes cblas rot"
-    end
-
-    context dtype do
-      it "exposes cblas rotg"
     end
   end
 
