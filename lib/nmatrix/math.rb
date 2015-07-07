@@ -433,8 +433,6 @@ class NMatrix
   #
   # This function is guaranteed to return the same type of data in the matrix
   # upon which it is called.
-  # In other words, if you call it on a rational matrix, you'll get a rational
-  # number back.
   #
   # Integer matrices are converted to floating point matrices for the purposes of
   # performing the calculation, as xGETRF can't work on integer matrices.
@@ -465,7 +463,7 @@ class NMatrix
     end
 
     # Convert back to an integer if necessary
-    new_dtype != self.dtype ? prod.to_i : prod
+    new_dtype != self.dtype ? prod.round : prod #prevent rounding errors
   end
 
   #
